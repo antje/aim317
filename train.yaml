@@ -26,39 +26,11 @@ spec:
         - --use_amp=False
         - --max_seq_length=64
         - --freeze_bert_layer=True
-        - --enable_sagemaker_debugger=True
-        - --enable_checkpointing=True
-        - --enable_tensorboard=True
         - --run_validation=True
         - --run_test=True
         - --run_sample_predictions=True
       image: 763104351884.dkr.ecr.us-west-2.amazonaws.com/tensorflow-training:2.1.0-cpu-py36-ubuntu18.04
       imagePullPolicy: Always
-      env: 
-        - name: SM_TRAINING_ENV
-          value: "{\"is_master\":true}"
-        - name: SAGEMAKER_JOB_NAME
-          value: "bert-model-training"
-        - name: SM_CURRENT_HOST
-          value: "localhost"
-        - name: SM_NUM_GPUS
-          value: "0"
-        - name: SM_HOSTS
-          value: "{\"hosts\":\"localhost\"}"
-        - name: SM_MODEL_DIR
-          value: "/opt/ml/model/"     
-        - name: SM_OUTPUT_DIR
-          value: "/opt/ml/output/"
-        - name: SM_OUTPUT_DATA_DIR
-          value: "/opt/ml/output/data/"
-        - name: SM_CHANNEL_TRAIN
-          value: "/opt/ml/input/data/train"
-        - name: SM_CHANNEL_VALIDATION
-          value: "/opt/ml/input/data/validation"     
-        - name: SM_CHANNEL_TEST
-          value: "/opt/ml/input/data/test"
-        - name: HDF5_USE_FILE_LOCKING
-          value: "FALSE"
       securityContext:
         privileged: true
       volumeMounts:
