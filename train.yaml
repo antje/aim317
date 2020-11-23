@@ -23,7 +23,7 @@ spec:
         - --validation_steps=10
         - --test_steps=10
         - --use_xla=True
-        - --use_amp=False
+        - --use_amp=True
         - --max_seq_length=64
         - --freeze_bert_layer=True
         - --run_validation=True
